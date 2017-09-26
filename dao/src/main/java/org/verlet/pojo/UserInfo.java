@@ -1,6 +1,6 @@
 package org.verlet.pojo;
 
-public class User {
+public class UserInfo {
     private String id;
 
     private String account;
@@ -9,14 +9,14 @@ public class User {
 
     private String userName;
 
-    public User(String id, String account, String password, String userName) {
+    public UserInfo(String id, String account, String password, String userName) {
         this.id = id;
         this.account = account;
         this.password = password;
         this.userName = userName;
     }
 
-    public User() {
+    public UserInfo() {
         super();
     }
 
