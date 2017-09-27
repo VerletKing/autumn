@@ -52,4 +52,135 @@ public class PropertiesUtil {
         }
         return value.trim();
     }
+	
+	/**
+	 * @Desccription 将文本配置文件信息读取到map中
+	 * @param filePath
+	 * @return
+	 * @return Map<String,String>
+	 */
+	public static Map<String, String> readIntoMap(String filePath) {
+
+		try {
+			Properties properties = new Properties();
+			File file = new File(filePath);
+			properties.load(new FileInputStream(file));
+			Set<Entry<Object, Object>> entrySet = properties.entrySet();
+
+			Map<String, String> map = new HashMap<String, String>();
+
+			for (Entry<Object, Object> entry : entrySet) {
+				String key = entry.getKey().toString().trim();
+				if (!key.startsWith("#")) {
+					String value = entry.getValue().toString();
+					map.put(key, value);
+				}
+			}
+			return map;
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * @Desccription 将文本配置文件流信息读到map中
+	 * @param in
+	 * @return
+	 * @return Map<String,String>
+	 */
+	public static Map<String, String> readIntoMap(InputStream in) {
+
+		try {
+			Properties properties = new Properties();
+			properties.load(in);
+			Set<Entry<Object, Object>> entrySet = properties.entrySet();
+
+			Map<String, String> map = new HashMap<String, String>();
+
+			for (Entry<Object, Object> entry : entrySet) {
+				String key = entry.getKey().toString().trim();
+				if (!key.startsWith("#")) {
+					String value = entry.getValue().toString();
+					map.put(key, value);
+				}
+			}
+			return map;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * @Desccription 从文本配置文件信息中读取某个属性
+	 * @param filePath
+	 * @param key
+	 * @return
+	 * @return String
+	 */
+	public static String readPropValue(String filePath, String key) {
+
+		try {
+			Properties properties = new Properties();
+			File file = new File(filePath);
+			properties.load(new FileInputStream(file));
+			return properties.getProperty(key, "");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * @Desccription 从文本配置文件流信息中读取某个属性
+	 * @param in
+	 * @param key
+	 * @return
+	 * @return String
+	 */
+	public static String readPropValue(InputStream in, String key) {
+
+		try {
+			Properties properties = new Properties();
+			properties.load(in);
+			return properties.getProperty(key, "");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * @Desccription 向文本配置文件中添加或更新某个属性
+	 * @param filePath
+	 * @param key
+	 * @param value
+	 * @return
+	 * @return boolean
+	 */
+	public static boolean writePropValue(String filePath, String key,
+			String value) {
+
+		try {
+			Properties properties = new Properties();
+			File file = new File(filePath);
+			properties.load(new FileInputStream(file));
+			// 写值，key有重复会发生覆盖
+			properties.setProperty(key, value);
+			properties.store(new FileOutputStream(filePath), "");
+			return true;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
