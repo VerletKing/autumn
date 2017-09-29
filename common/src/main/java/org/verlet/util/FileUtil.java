@@ -16,7 +16,7 @@ public class FileUtil {
 	 * @param destFileName 文件路径及文件名 文件格式
 	 * @return
 	 */
-	public static boolean CreateFile(String destFileName) {
+	public static boolean createFile(String destFileName) {
 		File file = new File(destFileName);
 		if (file.exists()) {
 //			System.out.println("创建单个文件" + destFileName + "失败，目标文件已存在！");
@@ -111,7 +111,7 @@ public class FileUtil {
      *@param sPath  要删除的目录或文件
      *@return 删除成功返回 true，否则返回 false。
      */
-    public static boolean DeleteFolder(String sPath) {
+    public static boolean deleteFolder(String sPath) {
     	boolean flag = false;
     	File file = new File(sPath);
         // 判断目录或文件是否存在
