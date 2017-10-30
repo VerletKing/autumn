@@ -23,6 +23,7 @@
         <logback>1.2.3</logback>
         <jackson>2.9.1</jackson>
         <joda-time>2.9.9</joda-time>
+        <servlet-api>8.5.20</servlet-api>
     </properties>
 
     <dependencies>
@@ -89,6 +90,12 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${joda-time}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${servlet-api}</version>
         </dependency>
     </dependencies>
 

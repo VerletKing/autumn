@@ -34,7 +34,7 @@ public class MD5Util {
         String resultString = null;
         try{
             resultString = new String(origin);
-            MessageDigest messageDigest = MessageDigest.getInstance(charsetname);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             if(charsetname == null || "".equals(charsetname)){
                 resultString = byteArrayToHexString(messageDigest.digest(resultString.getBytes()));
             }else{
