@@ -1,17 +1,15 @@
 package org.verlet.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.verlet.dao.UserInfoMapper;
 import org.verlet.service.UserService;
 
 @Service
+@com.alibaba.dubbo.config.annotation.Service(version = "1.0.0")
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserInfoMapper userInfoMapper;
 
-    public String login(String account, String password) {
-        return userInfoMapper.login(account, password);
+    @Override
+    public void show() {
+        System.out.println("hello world");
     }
 }

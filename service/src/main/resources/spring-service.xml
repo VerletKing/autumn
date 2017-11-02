@@ -19,4 +19,6 @@
 
     <!-- 使用@Transactional进行声明式事务管理需要声明下面这行 -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <import resource="dubbo-service.xml"/>
 </beans>
