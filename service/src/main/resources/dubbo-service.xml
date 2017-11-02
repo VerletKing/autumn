@@ -14,4 +14,10 @@
     <dubbo:protocol name="dubbo" port="20880"/>
     <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类-->
     <dubbo:annotation package="org.verlet.service"/>
+
+
+    <!--<dubbo:annotation/>-->
+    <!--<context:component-scan base-package="org.verlet.service">-->
+        <!--<context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Service"/>-->
+    <!--</context:component-scan>-->
 </beans>
