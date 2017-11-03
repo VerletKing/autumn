@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <cache name="cache" maxBytesLocalHeap="50m" timeToLiveSeconds="100"></cache>
+</ehcache>
