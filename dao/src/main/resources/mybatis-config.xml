@@ -11,6 +11,8 @@
         <setting name="defaultStatementTimeout" value="3000"/>
         <!--使用jdbc的getGeneratedKeys获取数据库自增长主键值-->
         <setting name="useGeneratedKeys" value="true"/>
+        <!--自动映射，默认是PARTIAL-->
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
         <!--使用列别名替换列名 默认为true-->
         <setting name="useColumnLabel" value="true"/>
         <!--开启驼峰命名转换-->
